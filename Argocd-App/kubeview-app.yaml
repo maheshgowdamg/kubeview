@@ -21,7 +21,7 @@ spec:
           - $values/Common/values.yaml   # 👈 This points to Common/values.yaml in your repo
 
     # 2️⃣ GitHub repo for values reference
-    - repoURL: 'https://github.com/maheshgowdamg/Databases.git'
+    - repoURL: 'https://github.com/maheshgowdamg/kubeview.git'
       targetRevision: HEAD
       ref: values
 
