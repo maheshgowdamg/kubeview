@@ -14,8 +14,8 @@ spec:
   sources:
     # 1️⃣ Helm Chart Source
     - chart: kubeview
-      repoURL: https://benc-uk.github.io/kubeview/charts/
-      targetRevision: 1.6.0
+      repoURL: https://code.benco.io/kubeview/deploy/helm
+      targetRevision: 2.0.5
       helm:
         valueFiles:
           - $values/Common/values.yaml   # 👈 This points to Common/values.yaml in your repo
