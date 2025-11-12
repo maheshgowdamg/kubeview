@@ -7,11 +7,8 @@ image:
 
 service:
   type: NodePort
-  port: 8000        # Must match container's internal port
+  port: 8000
   nodePort: 32080
-
-ingress:
-  enabled: false
 
 env:
   - name: NODE_ENV
@@ -20,6 +17,10 @@ env:
     value: "8000"
   - name: BASE_URL
     value: "/"
+  - name: KUBERNETES_INCLUSTER_CONFIG
+    value: "true"       # ✅ tells KubeView to use in-cluster config
+  - name: KUBECONFIG
+    value: ""            # ✅ disable external kubeconfig path
 
 serviceAccount:
   create: true
