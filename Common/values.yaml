@@ -1,38 +1,21 @@
 replicaCount: 1
 
 image:
-  repository: bencuk/kubeview
+  repository: ghcr.io/benc-uk/kubeview
   tag: latest
   pullPolicy: IfNotPresent
 
-service:
-  type: NodePort
-  port: 8000
-  nodePort: 32080
+loadBalancer:
+  enabled: false
 
-env:
-  - name: NODE_ENV
-    value: production
-  - name: PORT
-    value: "8000"
-  - name: BASE_URL
-    value: "/"
-  - name: KUBERNETES_INCLUSTER_CONFIG
-    value: "true"       # ✅ tells KubeView to use in-cluster config
-  - name: KUBECONFIG
-    value: ""            # ✅ disable external kubeconfig path
-
-serviceAccount:
-  create: true
-  name: kubeview-sa
-
-rbac:
-  create: true
+nodePort:
+  enabled: true
+  port: 32080
 
 resources:
-  requests:
+  limits:
     cpu: 100m
     memory: 128Mi
-  limits:
-    cpu: 200m
-    memory: 256Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
